@@ -11,7 +11,7 @@ After this make sure you are standing inside a folder (in the console) where you
 After you can run the command: 
 
 ```
-git clone https://github.com/RyuTribal/DarkFantasies.git
+git clone https://github.com/RyuTribal/Project_GJ.git
 
 ```
 Lastly navigate to the projects folder and press the "Project_DF.uproject" file and let it generate new engine files. After it will open it automatically
