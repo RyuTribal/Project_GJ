@@ -10,7 +10,7 @@ struct FItem
 {
 	GENERATED_USTRUCT_BODY()
 
-		UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item")
 		FName ItemID;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item")
@@ -27,8 +27,4 @@ struct FItem
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 		UTexture2D* ItemIcon;
-
-
-
-
 };
