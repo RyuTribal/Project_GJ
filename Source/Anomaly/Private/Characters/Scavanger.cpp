@@ -3,6 +3,8 @@
 
 #include "Characters/Scavanger.h"
 
+#include "Gamemodes/BaseGameMode.h"
+
 
 AScavanger::AScavanger()
 {
@@ -31,6 +33,22 @@ void AScavanger::MoveRight(float Axis)
 
 	const FVector FDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 	AddMovementInput(FDirection, Axis);
+}
+
+void AScavanger::AddItem(FName ItemID)
+{
+	ABaseGameMode* GMode = GetWorld()->GetAuthGameMode<ABaseGameMode>();
+	bool has_item = false;
+	FItem Item = GMode->FindItem_Implementation(ItemID, has_item);
+	if(has_item)
+	{
+		Inventory.Push(Item);
+	}
+}
+
+bool AScavanger::HasFreeInventorySlots()
+{
+	return (Inventory.Num() < TotalInventorySlots);
 }
 
 void AScavanger::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
