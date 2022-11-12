@@ -11,6 +11,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/InputComponent.h"
+#include "Data/DataStructs.h"
 #include "Scavanger.generated.h"
 
 /**
@@ -20,6 +21,13 @@ UCLASS()
 class ANOMALY_API AScavanger : public APaperCharacter
 {
 	GENERATED_BODY()
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+		TArray<FItem> Inventory;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+		int32 TotalInventorySlots = 6;
 
 public:
 	AScavanger();
@@ -34,6 +42,12 @@ public:
 
 	UFUNCTION()
 		void MoveRight(float Axis);
+
+
+	UFUNCTION(BlueprintCallable)
+	void AddItem(FName ItemID);
+
+	bool HasFreeInventorySlots();
 
 private:
 	// Called to bind functionality to input
